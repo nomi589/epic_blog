@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :confirm_delete, :destroy]
   before_action :post_params, only: [:create, :update]
-  before_action :require_login, except: [:index]
+  before_action :require_login, except: [:index, :show]
   before_action :set_back_path, only: [:new, :edit, :confirm_delete]
 
   def index
