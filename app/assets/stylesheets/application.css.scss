@@ -1,0 +1,25 @@
+$navbar-border-radius: 0;
+$well-bg: #fcfcfc;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  background: url(asset_path("main_bg.svg")) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.post hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.panel-heading, .panel-footer {
+  p {
+    margin-bottom: 0;
+  }
+}
+
+textarea.form-control {
+  height: 400px;
+}

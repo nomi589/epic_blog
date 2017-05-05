@@ -1,0 +1,23 @@
+<%= render "shared/page_title", title: "Profile" %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p class="lead"><%= @user.username %> <%= link_to "Edit profile", edit_user_path(@user), class: "small pull-right" if @user == current_user %></p>
+        <p><small><strong>First name:</strong> <%= @user.first_name %></small></p>
+        <p><small><strong>Last name:</strong> <%= @user.last_name %></small></p>
+        <p><small><strong>Email:</strong> <%= @user.email %></small></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Posts <span class="badge"><%= @user.posts.count %></span></a></li>
+    </ul>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="home"><%= render "users/posts_table_view", posts: @user.posts %></div>
+    </div>
+  </div>
+</div>

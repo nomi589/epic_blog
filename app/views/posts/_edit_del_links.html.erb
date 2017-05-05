@@ -1,0 +1,3 @@
+<% if post.author == current_user %>
+  <p><small><%= link_to "Edit", edit_post_path(post) %> | <%= link_to "Delete", confirm_delete_path(post) %></small></p>
+<% end %>
