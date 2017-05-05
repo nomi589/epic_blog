@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :confirm_delete, :destroy]
   before_action :post_params, only: [:create, :update]
   before_action :require_login, except: [:index, :show]
+  before_action :require_author, only: [:edit, :confirm_delete, :destroy]
   before_action :set_back_path, only: [:new, :edit, :confirm_delete]
 
   def index
@@ -29,7 +30,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    require_author
+
   end
 
   def update
@@ -66,9 +67,5 @@ class PostsController < ApplicationController
       flash[:error] = "Access denied"
       redirect_to root_path
     end
-  end
-
-  def set_back_path
-    @back_path = request.referer
   end
 end

@@ -1,0 +1,11 @@
+<%= render "shared/page_title", title: "Please confirm ..." %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 well">
+    <p class="lead">Are you sure you want to delete the user <strong><%= @user.username %></strong>?</p>
+    <hr>
+    <div class="row">
+      <div class="col-md-1"><%= link_to "Yes", @user, method: :delete, class: "btn btn-danger" %></div>
+      <div class="col-md-1"><%= link_to "No", @back_path, class: "btn btn-default" %></div>
+    </div>
+  </div>
+</div>

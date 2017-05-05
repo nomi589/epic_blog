@@ -21,4 +21,8 @@ class ApplicationController < ActionController::Base
   def require_logout
     redirect_to root_path if logged_in?
   end
+
+  def set_back_path
+    @back_path = request.referer
+  end
 end

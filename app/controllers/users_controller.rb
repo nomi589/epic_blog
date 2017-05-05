@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   before_action :require_login, except: [:new, :create, :show]
   before_action :require_logout, only: [:new]
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :confirm_delete, :destroy]
+  before_action :require_authorized_user, only: [:edit, :confirm_delete, :destroy]
+  before_action :set_back_path, only: [:new, :edit, :confirm_delete]
 
   def new
     @user = User.new
@@ -36,6 +38,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def confirm_delete
+
+  end
+
+  def destroy
+    session.delete(:user_id)
+    @user.destroy
+    flash[:notice] = "Account deleted"
+    redirect_to root_path
+  end
+
   private
 
   def set_user
@@ -44,5 +57,12 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit!
+  end
+
+  def require_authorized_user
+    if @user != current_user
+      flash[:error] = "Access denied"
+      redirect_to root_path
+    end
   end
 end

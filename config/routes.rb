@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
   resources :posts
-  get '/posts/:id/confirm_delete', to: 'posts#confirm_delete', as: 'confirm_delete'
+  get '/posts/:id/confirm_delete', to: 'posts#confirm_delete', as: 'post_confirm_delete'
 
-  resources :users, only: [:show, :create, :edit, :update]
+  resources :users, except: [:index]
+  get '/users/:id/confirm_delete', to: 'users#confirm_delete', as: 'user_confirm_delete'
 end
