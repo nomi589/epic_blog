@@ -25,6 +25,9 @@
           <p class="navbar-text">A blog of epic proportions</p>
         </div>
         <div class="collapse navbar-collapse" id="menu">
+          <ul class="nav navbar-nav">
+            <%= render "layouts/categories" %>
+          </ul>
           <% if logged_in? %>
             <%= render "layouts/header_logged_in" %>
           <% else %>

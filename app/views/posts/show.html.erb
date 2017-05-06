@@ -3,7 +3,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title"><%= @post.title %> <small>by: <%= link_to @post.author.username, user_path(@post.author) %></small></h3>
-        <p><small>categories: </small></p>
+        <p class="hidden-xs"><small>categories: <%= render @post.categories %></small></p>
         </div>
       <div class="panel-body"><%= simple_format @post.body %></div>
       <% if @post.author == current_user %>

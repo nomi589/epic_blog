@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index]
   get '/users/:id/confirm_delete', to: 'users#confirm_delete', as: 'user_confirm_delete'
+
+  resources :categories, only: [:show, :new, :create]
 end

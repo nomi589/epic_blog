@@ -12,6 +12,19 @@
         <%= f.text_area :body, class: "form-control" %>
       </div>
 
+      <div class="form-group">
+        <p class="help-block">Categories:</p>
+      </div>
+
+      <div class="checkbox">
+        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+          <%= b.label do %>
+            <%= b.check_box %>
+            <%= b.text %>
+          <% end %>
+        <% end %>
+      </div>
+
       <%= f.submit "Publish", class: "btn btn-success" %>
       <%= link_to "Cancel", @back_path, class: "btn btn-default" %>
     <% end %>
