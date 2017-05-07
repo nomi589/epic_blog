@@ -1,0 +1,16 @@
+<table class="table table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>Post</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% comments.each do |comment| %>
+      <tr>
+        <td><%= link_to comment.post.title, comment.post %></td>
+        <td><%= link_to "#{truncate(comment.body, length: 30)}", comment.post %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
