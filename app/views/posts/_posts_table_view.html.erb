@@ -3,7 +3,9 @@
     <tr>
       <th>Title</th>
       <th>Published on</th>
-      <th>Actions</th>
+      <% if logged_in? %>
+        <th>Actions</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>

@@ -18,10 +18,12 @@
 <div class="row">
   <div class="col-md-12">
     <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Posts <span class="badge"><%= @user.posts.count %></span></a></li>
+      <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Posts <span class="badge"><%= @user.posts.count %></span></a></li>
+      <li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments <span class="badge"><%= @user.comments.count %></span></a></li>
     </ul>
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="home"><%= render "posts/posts_table_view", posts: @user.posts %></div>
+      <div role="tabpanel" class="tab-pane active" id="profile"><%= render "posts/posts_table_view", posts: @user.posts %></div>
+      <div role="tabpanel" class="tab-pane" id="comments"><%= render "comments/comments_table_view", comments: @user.comments %></div>
     </div>
   </div>
 </div>

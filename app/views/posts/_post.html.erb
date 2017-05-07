@@ -10,6 +10,8 @@
     <p class="lead"><%= link_to post.title, post %></p>
     <p><%= sanitize truncate(post.body, length: 70) %></p>
     <hr>
+    <%= link_to "#{pluralize(post.comments.count, 'comment')}", post %>
+    <hr>
     <%= render "posts/edit_del_links", post: post %>
     <small>posted by <%= link_to post.author.username, user_path(post.author) %> on <%= post.created_at %></small>
   </div>

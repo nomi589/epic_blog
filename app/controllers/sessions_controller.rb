@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   before_action :require_logout, except: [:show, :destroy]
 
   def new
-
+    session[:back_path] = request.referer
   end
 
   def show
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to session[:back_path]
     else
       flash[:error] = "Username or password not found"
       render :new
