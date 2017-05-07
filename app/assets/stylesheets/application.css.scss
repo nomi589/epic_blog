@@ -24,8 +24,16 @@ textarea.form-control {
   height: 400px;
 }
 
+textarea.comment {
+  height: 100px;
+}
+
 span.badge {
   a {
     color: white;
   }
+}
+
+.comments {
+  margin-top: 20px;
 }

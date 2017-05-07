@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:create]
+  end
   get '/posts/:id/confirm_delete', to: 'posts#confirm_delete', as: 'post_confirm_delete'
 
   resources :users, except: [:index]

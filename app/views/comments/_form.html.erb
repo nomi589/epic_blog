@@ -1,0 +1,12 @@
+<% if @comment.errors.any? %>
+  <%= render "shared/errors", errors: @comment.errors.full_messages %>
+<% end %>
+
+<%= form_for [@post, @comment] do |f| %>
+  <div class="form-group">
+    <%= f.label :body, "Comment" %>
+    <%= f.text_area :body, class: "form-control comment" %>
+  </div>
+
+  <%= f.submit "Post comment", class: "btn btn-primary" %>
+<% end %>
