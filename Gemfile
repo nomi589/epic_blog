@@ -17,6 +17,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 
+# Adding gems below because their older versions had security vulnerabilities
+# as pointed out by Github
+gem 'loofah', '~> 2.2.2'
+gem 'nokogiri', '~> 1.8.2'
+gem 'rails-html-sanitizer', '~> 1.0.4'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13.0'
